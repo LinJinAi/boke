@@ -1,0 +1,24 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+{{ define "main" }}
+  <section class="hero">
+    <h1>{{ .Site.Title }}</h1>
+    <p class="subtitle">{{ .Site.Params.description }}</p>
+  </section>
+
+  <section class="posts">
+    <h2>最新文章</h2>
+    {{ range first 10 (where site.RegularPages "Section" "posts") }}
+      <article class="post-card">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+          · {{ .Params.author }}
+        </p>
+        <div class="tags">
+          {{ range .Params.tags }}<span class="tag">#{{ . }}</span>{{ end }}
+        </div>
+        {{ with .Summary }}<p class="summary">{{ . }}</p>{{ end }}
+      </article>
+    {{ end }}
+  </section>
+{{ end }}

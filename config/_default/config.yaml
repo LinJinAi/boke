@@ -1,0 +1,23 @@
+module: "example.com/boke"
+
+baseURL: "https://LinJinAi.github.io/boke/"
+languageCode: "zh-cn"
+defaultContentLanguage: "zh"
+title: "boke"
+
+hasCJKLanguage: true
+
+params:
+  description: "基于 Hugo + GitHub Pages 的静态博客"
+  authorName: "LinJin"
+  authorURL: "https://github.com/LinJinAi"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+pagination:
+  pagerSize: 10
+
+enableEmoji: true

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="{{ "style.css" | relURL }}">
+  {{ with .Site.Params.authorName }}<meta name="author" content="{{ . }}">{{ end }}
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+    <nav class="nav">
+      <a href="{{ "/" | relURL }}">首页</a>
+      <a href="{{ "/posts/" | relURL }}">文章</a>
+    </nav>
+  </header>
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="site-footer">
+    <p>© {{ now.Year }} {{ .Site.Params.authorName }} · Powered by Hugo &amp; GitHub Pages (◕‿◕)</p>
+  </footer>
+</body>
+</html>

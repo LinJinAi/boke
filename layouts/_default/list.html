@@ -1,0 +1,13 @@
+{{ define "title" }}文章 · {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+  <h1>全部文章</h1>
+  <ul class="post-list">
+    {{ range where site.RegularPages "Section" "posts" }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        <span class="author">{{ .Params.author }}</span>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
